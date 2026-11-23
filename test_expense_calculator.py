@@ -32,6 +32,18 @@ class TestExpenseCalculator(unittest.TestCase):
         with self.assertRaises(ValueError):
             add_expense([], True, "food")
 
+    def test_nan_is_rejected(self):
+        with self.assertRaises(ValueError):
+            add_expense([], float("nan"), "food")
+
+    def test_infinity_is_rejected(self):
+        with self.assertRaises(ValueError):
+            add_expense([], float("inf"), "food")
+
+    def test_amount_above_limit_is_rejected(self):
+        with self.assertRaises(ValueError):
+            add_expense([], 10**12, "food")
+
 
 if __name__ == "__main__":
     unittest.main()
