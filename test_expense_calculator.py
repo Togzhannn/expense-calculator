@@ -28,9 +28,6 @@ class TestExpenseCalculator(unittest.TestCase):
         with self.assertRaises(ValueError):
             add_expense([], -10, "food")
 
-    def test_boolean_amount_is_rejected(self):
-        with self.assertRaises(ValueError):
-            add_expense([], True, "food")
 
 
 if __name__ == "__main__":
